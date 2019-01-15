@@ -7,7 +7,7 @@ function init(){
 	model.root = getFromLs('root');
 	
 	if(model.root === null) {
-		model.root = {'value': null, 'children': [], 'parent': {}}
+		model.root = {'value': null, 'children': [], 'parent': null}
 		setToLs('root', model.root);
 	}
 	
@@ -92,5 +92,15 @@ function setToLs(key, value)
 	window.localStorage.setItem(key, JSON.stringify(value, getCircularReplacer()));
 }
 
+function gotoPrevious()
+{
+	if(model.currentHead.parent){
+		model.currentHead = model.currentHead.parent;
+		fillUI(model.currentHead);
+	}
+	else{
+		alert("Invalid Action!");
+	}
+}
 //Initialize the App
 init();
