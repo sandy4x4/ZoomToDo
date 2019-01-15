@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Zoom Todo </title>
+		 <link rel="stylesheet" type="text/css" href="./css/main.css">
+	</head>
+	
+	<body>
+		<div id ="box">
+		</div>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<form action="" onsubmit = "addTodo(event)" id="todoForm">
+				<textarea name="todo" rows="4" cols="50"></textarea>
+				<button type="submit">Add Todo</button>
+			</form>
+		  </div>
+
+		</div> 
+		<div id="footer">
+			<button type="button" class="button" onclick="openModal()"> Add </button>
+		</div>
+		<script src ="../JS/app.js"></script>
+	</body>
+</html>

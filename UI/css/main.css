@@ -1,0 +1,72 @@
+body {
+	background-color: lightblue;
+}
+
+#box {
+	max-width: 800px;
+	margin:auto;
+	background-color: white;
+	border: 3px solid lightyellow;
+	padding: 10px;
+	min-height: 500px;
+}
+
+#footer {  
+    position: fixed;  
+	margin: auto;
+	width: 100%;
+    bottom: 0;  
+    z-index: 100;  
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: auto;	
+}
+
+.button:hover {
+  background-color: #228B22; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: auto;	
+}
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 792px; /* Could be more or less, depending on screen size */
+  height:30%;
+}
+
+.item{
+	background-color: #fefefe;
+}
