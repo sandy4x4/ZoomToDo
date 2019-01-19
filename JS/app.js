@@ -30,7 +30,21 @@ function fillUI(head){
 		let divElement = document.createElement('div');
 		divElement.className = 'item';
 		divElement.todoItem = item;
-		divElement.textContent = item.value;
+		//create delete button
+		let deleteButton = document.createElement('button');
+		deleteButton.className = 'delete-btn';
+		deleteButton.innerHTML = 'x';
+		deleteButton.addEventListener('click', (event) =>{
+			deleteTodo(event.target.parentNode.todoItem);
+		});
+		
+		//create span 
+		let todoText = document.createElement('span');
+		todoText.innerHTML = item.value;
+		
+		divElement.appendChild(todoText);
+		divElement.appendChild(deleteButton);
+
 		box.appendChild(divElement);
 	});
 }
@@ -38,7 +52,7 @@ function fillUI(head){
 function registerHandlers(){
 	let box = document.getElementById('box');
 	
-	box.addEventListener("click", event => {
+	box.addEventListener("dblclick", event => {
 		if(event.target.className === 'item')
 		{
 			model.currentHead = event.target.todoItem;
@@ -101,6 +115,12 @@ function gotoPrevious()
 	else{
 		alert("Invalid Action!");
 	}
+}
+
+function deleteTodo(todoItem){
+	model.currentHead.children = model.currentHead.children.filter(element => element!==todoItem);
+	setToLs('root', model.root);
+	fillUI(model.currentHead);
 }
 //Initialize the App
 init();

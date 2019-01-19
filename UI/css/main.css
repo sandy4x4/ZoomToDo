@@ -80,3 +80,12 @@ body {
 .item:hover{
 	background-color: #228B22; /* Dark Green */
 }
+
+.item:hover .delete-btn{
+	display: inline;
+}
+
+.delete-btn{
+	display: none;
+	background-color: #228B22
+}
