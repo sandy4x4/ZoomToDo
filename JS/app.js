@@ -122,8 +122,7 @@ function deleteTodo(todoItem){
 	fillUI(model.currentHead);
 }
 
-function addParent(parentNode, children)
-{
+function addParent(parentNode, children){
 	if(Array.isArray(children)){
 		children.forEach(child => {
 			child.parent = parentNode;
