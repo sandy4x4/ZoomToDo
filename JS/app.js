@@ -5,7 +5,8 @@ let model = {
 
 function init(){
 	model.root = getFromLs('root');
-	
+	//we need to add back the parent-child relation discarded during the stringyfication done during the peristence
+	addParent(model.root, model.root.children);
 	if(model.root === null) {
 		model.root = {'value': null, 'children': [], 'parent': null}
 		setToLs('root', model.root);
@@ -101,13 +102,11 @@ function getFromLs(key){
 	return JSON.parse(window.localStorage.getItem(key));
 }
 
-function setToLs(key, value)
-{
+function setToLs(key, value){
 	window.localStorage.setItem(key, JSON.stringify(value, getCircularReplacer()));
 }
 
-function gotoPrevious()
-{
+function gotoPrevious(){
 	if(model.currentHead.parent){
 		model.currentHead = model.currentHead.parent;
 		fillUI(model.currentHead);
@@ -121,6 +120,15 @@ function deleteTodo(todoItem){
 	model.currentHead.children = model.currentHead.children.filter(element => element!==todoItem);
 	setToLs('root', model.root);
 	fillUI(model.currentHead);
+}
+
+function addParent(parentNode, children){
+	if(Array.isArray(children)){
+		children.forEach(child => {
+			child.parent = parentNode;
+			addParent(child, child.children);
+		});
+	}
 }
 //Initialize the App
 init();
