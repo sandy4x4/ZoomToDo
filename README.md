@@ -1,2 +1,2 @@
 # ZoomToDo
-Js based app for creating recurisve ToDo
+JS based app for creating recurisve ToDo
